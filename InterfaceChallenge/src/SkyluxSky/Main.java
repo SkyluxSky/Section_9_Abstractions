@@ -39,11 +39,21 @@ public class Main {
         System.out.println(cam);
         cam.setWeapon("Heavy Bow Gun");
         saveObject(cam);
-        loadObject(cam);
+        //loadObject(cam);
         System.out.println(cam);
+
+        //werewolf utilizes code in our monster class
+        ISaveable werewolf = new Monster("Werewolf",20,40);
+
+        //To access internal methods of a class when using interfaces,
+        //We must use type casting to access the classes inner methods.
+        System.out.println("Strength = " + ((Monster) werewolf).getStrength());
+        System.out.println(werewolf);
+        saveObject(werewolf);
     }
 
     //Simulates reading values from an outside file.
+    //Allows for user to replace existing save by entering 1 or 0 to exit. (User must enter in all four values).
     public static ArrayList<String> readValues() {
         ArrayList<String> values = new ArrayList<String>();
 
