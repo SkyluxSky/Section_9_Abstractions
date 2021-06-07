@@ -13,6 +13,11 @@ public class Gearbox {
         this.gears = new ArrayList<Gear>();
         Gear neutral = new Gear(0, 0.0);
         this.gears.add(neutral);
+
+        //initiates gears in constructor
+        for (int i = 0; i < maxGears; i++){
+            addGear(i, i * 5.3);
+        }
     }
 
     public void operateClutch(boolean in){
@@ -45,7 +50,9 @@ public class Gearbox {
         return revs * gears.get(currentGear).getRatio();//Return revs times ratio...
     }
 
-    /**Inner Class**/
+    /**Inner Class*
+     *
+     * Great example of encapsulation, as Gear class is only visible to GearBox*/
     private class Gear {
         private int gearNumber;
         private double ratio;
