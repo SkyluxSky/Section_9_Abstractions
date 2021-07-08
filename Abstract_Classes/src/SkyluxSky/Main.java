@@ -1,4 +1,19 @@
 /*Abstraction is when you describe the functionality of something without going into the details.*/
+
+/*What is the difference between an interface and an abstract class
+*
+* A dog and a bird is an animal, so in this case, it makes more sense to implement inheritance.
+*
+* Interfaces can be a more flexible solution.
+*
+* An abstract class can have member variables that are inherited. an interface cannot.
+* - Interfaces are static.
+* - An interface cannot have a constructor.
+* - Abstract Classes can have any visibility
+*
+*
+* */
+
 package SkyluxSky;
 
 public class Main {

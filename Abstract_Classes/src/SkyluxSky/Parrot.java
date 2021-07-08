@@ -6,8 +6,9 @@ public class Parrot extends Bird {
         super(name);
     }
 
-    @Override
-    public void fly() {
-        System.out.println("Flitting from branch to branch");
-    }
+    /*outdated method for parrot - already implemented in Bird class*/
+    //@Override
+    //public void fly() {
+    //    System.out.println("Flitting from branch to branch");
+    //}
 }

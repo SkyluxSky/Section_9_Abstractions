@@ -8,6 +8,7 @@ public class Penguin extends Bird {
 
     @Override
     public void fly() {
+        super.fly(); //A penguin can flap its wings, but cannot fly.
         System.out.println("I'm not very good at that, can I go for a swim instead?");
     }
 }
