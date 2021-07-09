@@ -1,0 +1,53 @@
+Abstract Class:
+
+- Are very similar to interfaces. You cannot instantiate them, and they may contain
+a mix of methods declared without implementation. 
+
+- Abstract classes, we can declare filds that are not static and final, and define public
+protected, and private concrete methods.
+
+-Abstract Classes can extend only one parent class but can implement multiple interfaces.
+
+When To Use Abstract Classes:
+- You want to share code among the several closely related classes (Ex. Animal - with
+fields name, age...)
+
+- You expect classes that extend your abstact class to have many common methods or fields or 
+required access modifiers other than public(protected, private).
+
+- You want to declare non static or non final fields(for example name, age), this enables you
+to define methods that can access and modify the state of an object (getName, setName).
+
+Abstract Class = A Common definition of a base class that multiple derived classes can share.
+
+
+Interface:
+
+- An interface is just the declaration of methods of a Class, its not the implementation.
+
+- You cannot instantiate them, and may contain a mix of methods declared with or without implementation
+All methods in interfaces are automatically public and abstract.
+
+- An interface can extend another interface.
+
+- Interfaces are more flexible
+
+- Primary purpose is abstraction decoupling the what from the how.
+
+
+When To Use An Interface:
+
+- You expect unrelated classes will implement your interface. For example,
+the interfaces iComparable and iClonable are implemented by many unrelated classes.
+
+- When you want to specify the behavior of a particular data type, but you are not concerned 
+about who implements its behavior.
+
+- You want to seperate different behavior.
+
+-The collections API is an excellent example, we have the List interface and 
+implementations ArrayList and LinkedList.... 
+
+
+
+
