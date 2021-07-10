@@ -40,8 +40,8 @@ public class MyLinkedList implements NodeList{
                     currentItem = currentItem.next();
                 } else {
                     //There is no next, so insert at end of list.
-                    currentItem.setNext(newItem);//sets value as new item in list.
-                    newItem.setPrevious(currentItem);//sets the current value as the previous entry in the list.
+                    currentItem.setNext(newItem).setPrevious(currentItem); //sets value as new item in list.
+                    //newItem.setPrevious(currentItem); //sets the current value as the previous entry in the list.
                     return true;
                 }
 
@@ -49,17 +49,17 @@ public class MyLinkedList implements NodeList{
                 //newItem is less, insert before.
                 if (currentItem.previous() != null){
                     //Inserting a new item before what was the current item.
-                    currentItem.previous().setNext(newItem);//Set current item previous entry to the value of newItem.
-                    newItem.setPrevious(currentItem.previous());//Set the previous link to that item
-                    newItem.setNext(currentItem);
-                    currentItem.setPrevious(newItem);
+                    currentItem.previous().setNext(newItem).setPrevious(currentItem.previous());//Set current item previous entry to the value of newItem.
+                    //newItem.setPrevious(currentItem.previous()); //Set the previous link to that item
+                    newItem.setNext(currentItem).setPrevious(newItem);
+                    //currentItem.setPrevious(newItem);
 
                 } else {
                     //the node with a previous is the root
                     //sets the new item as the root
                     //inserts item before the original root
-                    newItem.setNext(this.root);
-                    this.root.setPrevious(newItem);
+                    newItem.setNext(this.root).setPrevious(newItem); //Example of short cut (implements both set next and previous in same line)
+                    //this.root.setPrevious(newItem);
                     this.root = newItem;
                 }
                 return true;
@@ -76,11 +76,55 @@ public class MyLinkedList implements NodeList{
 
     @Override
     public boolean removeItem(ListItem item) {
-        return false;
+
+        //Check if item is not Null.
+        if (item != null) {
+            System.out.println("Deleting item " + item.getValue());
+        }
+
+        ListItem currentItem = this.root; //start at head and go one by one
+        while(currentItem != null){
+            int comparison = currentItem.compareTo(item);//compares root to item entered
+
+            if (comparison == 0){
+                //found the item to delete
+                if (currentItem == this.root){
+                    this.root = currentItem.next();
+                } else {
+                    //takes previous value and delete whatever value follows it.
+                    currentItem.previous().setNext(currentItem.next());
+
+                    if (currentItem.next() != null) {
+                        //if we are at the end of the list replace current item with previous.
+                        currentItem.next().setPrevious(currentItem.previous());
+                    }
+                    return true;
+                }
+
+            } else if (comparison < 0) {
+                currentItem = currentItem.next();// continue through the list to see if we can find the record.
+            } else { // comparison > 0
+                //We are at an item greater that the one to be deleted.
+                //item is not in the list
+                return false;
+            }
+        }
+
+        return false;//no item to delete
     }
 
     @Override
     public void traverse(ListItem root) {
 
+        //Check if list is empty
+        if(root == null){
+            System.out.println("The list is empty");
+
+        } else {
+            while (root != null){
+                System.out.println(root.getValue());// print element
+                root = root.next(); // get next element
+            }
+        }
     }
 }
