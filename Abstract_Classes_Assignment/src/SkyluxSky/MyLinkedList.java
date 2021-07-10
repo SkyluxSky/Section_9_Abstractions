@@ -126,5 +126,12 @@ public class MyLinkedList implements NodeList{
                 root = root.next(); // get next element
             }
         }
+
+        //Alternate Method -Using Recursion
+//        if (root != null){
+//            System.out.println(root.getValue());
+//            traverse(root.next());
+//            // 9,000,000,000,000,000,000 nodes (Overflows program)
+//        }
     }
 }
